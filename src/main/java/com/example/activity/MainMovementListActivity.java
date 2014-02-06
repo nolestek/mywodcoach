@@ -30,11 +30,7 @@ public class MainMovementListActivity extends Activity {
       ListView lv = ((ListView) findViewById(R.id.movement_list));
               lv.setAdapter(new MovementsAdapter(movementList));
 
-      //this.setListAdapter(new ArrayAdapter<String>(this, R.layout.movement_list_item, R.id.label, movements));
 
-      //ListView lv = getListView();
-
-      // listening to single list item on click
 
       lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           public void onItemClick(AdapterView<?> parent, View view,
