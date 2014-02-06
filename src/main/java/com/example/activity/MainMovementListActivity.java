@@ -11,8 +11,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.example.R;
+import com.example.helper.MovementsAdapter;
 
-public class MainMovementListActivity extends ListActivity {
+import java.util.Arrays;
+import java.util.List;
+
+public class MainMovementListActivity extends Activity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +25,14 @@ public class MainMovementListActivity extends ListActivity {
 
       String[] movements = getResources().getStringArray(R.array.movements);
 
-      this.setListAdapter(new ArrayAdapter<String>(this, R.layout.movement_list_item, R.id.label, movements));
+      List<String> movementList = Arrays.asList(movements);
 
-      ListView lv = getListView();
+      ListView lv = ((ListView) findViewById(R.id.movement_list));
+              lv.setAdapter(new MovementsAdapter(movementList));
+
+      //this.setListAdapter(new ArrayAdapter<String>(this, R.layout.movement_list_item, R.id.label, movements));
+
+      //ListView lv = getListView();
 
       // listening to single list item on click
 

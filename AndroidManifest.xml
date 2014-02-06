@@ -9,7 +9,9 @@
 
     <application android:name=".MyWODCoach">
 
-        <activity android:name=".activity.MainMovementListActivity" android:screenOrientation="portrait">
+        <activity android:name=".activity.MainMovementListActivity"
+                  android:screenOrientation="portrait"
+                  android:label="My WOD Coach">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
