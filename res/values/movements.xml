@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="movements">
+        <item>Kipping Pull Ups</item>
+        <item>Butterfly Pull Ups</item>
+        <item>Kipping Hand Stand Push Ups</item>
+        <item>Kipping Ring Dips</item>
+        <item>Pistol Squats</item>
+        <item>Muscle Ups</item>
+        <item>Double Unders</item>
+        <item>Toes To Bar</item>
+        <item>Wall Ball</item>
+    </string-array>
+</resources>
