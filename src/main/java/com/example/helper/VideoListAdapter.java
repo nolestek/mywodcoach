@@ -2,6 +2,7 @@ package com.example.helper;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +10,16 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.R;
+import com.example.TutorialVideo;
 
 import java.util.ArrayList;
 
 public class VideoListAdapter extends BaseAdapter {
     private Activity activity;
     private static LayoutInflater inflater = null;
-    private ArrayList<String> data;
+    private ArrayList<TutorialVideo> data;
 
-    public VideoListAdapter(Activity a, ArrayList<String> d){
+    public VideoListAdapter(Activity a, ArrayList<TutorialVideo> d){
         activity = a;
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         data = d;
@@ -30,7 +32,7 @@ public class VideoListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public TutorialVideo getItem(int position) {
         return data.get(position);
     }
 
@@ -50,9 +52,11 @@ public class VideoListAdapter extends BaseAdapter {
         TextView duration = (TextView)vi.findViewById(R.id.duration); // duration
         ImageView thumb_image=(ImageView)vi.findViewById(R.id.list_image);
 
-        title.setText(data.get(position));
-        artist.setText(data.get(position));
-        duration.setText(data.get(position));
+        title.setText(data.get(position).getName());
+        artist.setText(data.get(position).getDescription());
+        duration.setText(data.get(position).getDescription());
+
+        thumb_image.setImageDrawable(vi.getResources().getDrawable(R.drawable.thumb));
 
 
 

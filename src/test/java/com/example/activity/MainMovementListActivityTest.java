@@ -1,5 +1,6 @@
 package com.example.activity;
 import android.app.ListActivity;
+import android.view.View;
 import android.widget.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +36,7 @@ public class MainMovementListActivityTest  {
     @Before
     public void setup(){
         activity = Robolectric.buildActivity(MainMovementListActivity.class)
-                .create()
+                .create().visible()
                 .get();
 
         movements_listView = (ListView) activity.findViewById(R.id.movement_list);
@@ -59,24 +60,6 @@ public class MainMovementListActivityTest  {
         assertNotNull(movements_listView.getItemIdAtPosition(0));
         assertNotNull(activity.findViewById(R.id.movement_list));
 
-    }
-
-    @Test
-    public void pressingListViewItemShouldStartTheVideoListActivity() throws Exception {
-        long viewId = movements_listView.getItemIdAtPosition(0);
-        TextView selectedTV = (TextView)activity.findViewById(R.id.label);
-        ListView lv = (ListView) activity.findViewById(R.id.movement_list);
-
-        ListAdapter adapterView = movements_listView.getAdapter();
-        adapterView.getView(0, selectedTV, lv);
-
-
-
-        //Robolectric.shadowOf(adapterView).performItemClick(1);
-        ShadowActivity shadowActivity = shadowOf(activity);
-        Intent startedIntent = shadowActivity.getNextStartedActivity();
-        ShadowIntent shadowIntent = shadowOf(startedIntent);
-        assertThat(shadowIntent.getComponent().getClassName(), equalTo(VideoListActivity.class.getName()));
     }
 }
 
